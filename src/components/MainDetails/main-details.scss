@@ -1,0 +1,23 @@
+@use '../../sass/variables.scss' as *;
+@use '../../sass/mixins.scss' as *;
+
+.main-details-container {
+  @include card();
+
+  & > div {
+    @include flex-row();
+    position: relative;
+    justify-content: space-between;
+
+    &:not(:last-of-type):after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 1px;
+      background: transparentize($white, 0.8);
+    }
+  }
+}

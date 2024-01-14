@@ -1,0 +1,16 @@
+@use '../../sass/variables.scss' as *;
+@use '../../sass/mixins.scss' as *;
+
+.source-info {
+  @include flex-row;
+  justify-content: space-between;
+  padding: 20px 10px;
+  font-size: 0.8rem;
+  max-width: 800px;
+  margin: 0 auto;
+
+  .source a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}

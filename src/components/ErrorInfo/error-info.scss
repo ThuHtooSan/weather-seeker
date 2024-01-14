@@ -1,0 +1,28 @@
+@use '../../sass/variables.scss' as *;
+@use '../../sass/mixins.scss' as *;
+
+.error-container {
+  @include modal-container();
+  z-index: 99;
+
+  .error-modal {
+    @include modal-center($black, 15px);
+    max-width: 300px;
+    padding: 20px !important;
+
+    .title {
+      font-size: 1.1rem;
+    }
+
+    .icon {
+      font-size: 4rem;
+    }
+
+    .dismiss {
+      color: $black;
+      padding: 5px 8px;
+      font-size: 0.8rem;
+      background: $white;
+    }
+  }
+}

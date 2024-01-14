@@ -1,0 +1,169 @@
+@use 'variables' as *;
+
+// flex alignments
+@mixin flex-row($gap: 0px) {
+  display: flex;
+  align-items: center;
+  gap: $gap;
+}
+
+@mixin flex-row-center($gap: 0px) {
+  @include flex-row($gap);
+  justify-content: center;
+}
+
+@mixin flex-col($gap: 0px) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+@mixin flex-col-center($gap: 0px) {
+  @include flex-col($gap);
+  justify-content: center;
+}
+
+@mixin flex-center($gap: 0px) {
+  @include flex-col-center($gap);
+  align-items: center;
+}
+
+@mixin fix-center() {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// modal
+
+@mixin modal-container($bg: none, $blurred: true) {
+  @include flex-row-center();
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $bg;
+
+  @if ($blurred) {
+    backdrop-filter: $blur;
+  }
+}
+
+@mixin modal($bg: #fff, $gap: 25px, $color: inherit, $width: auto) {
+  @include flex-col($gap);
+  width: $width;
+  min-width: 250px;
+  min-height: 200px;
+  padding: 20px;
+  position: relative;
+  background: transparentize($bg, 0.4);
+  backdrop-filter: blur(8px);
+  color: $color;
+  animation: fadeIn $animation-duration 1;
+
+  @if ($width != 100% and $width != 100vw) {
+    max-width: 90%;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+  } @else {
+    height: 100%;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 30px;
+  }
+}
+
+@mixin modal-center($bg: #fff, $gap: 25px, $color: inherit, $width: auto) {
+  @include modal($bg, $gap, $color, $width);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@mixin modal-dismiss-btn($side: right, $hover-color: null, $focus-color: null) {
+  position: absolute;
+  top: 20px;
+  #{$side}: 20px;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+
+  @if ($hover-color) {
+    &:hover {
+      color: $hover-color;
+    }
+  }
+
+  @if ($focus-color) {
+    &:focus {
+      color: $focus-color;
+    }
+  }
+
+  @if ($hover-color or $focus-color) {
+    transition: $transition-duration;
+  }
+}
+
+// navbar
+@mixin navbar($bg: none, $color: inherit) {
+  @include flex-row();
+  justify-content: space-between;
+  padding: 20px;
+  background: $bg;
+  color: $color;
+  margin-bottom: 15px;
+  max-width: $max-width;
+  margin-inline: auto;
+}
+
+// nav links
+@mixin navlinks($gap, $color: inherit, $hover-color: null) {
+  @include flex-row($gap);
+
+  a {
+    text-decoration: none;
+  }
+
+  & > li {
+    list-style-type: none;
+    margin-inline: none;
+  }
+
+  & > * {
+    color: $color;
+
+    @if ($hover-color) {
+      &:hover {
+        color: $hover-color;
+      }
+
+      &:active {
+        color: darken($hover-color, 20%);
+      }
+    }
+  }
+}
+
+// card with bg blur
+@mixin card($width: 350px) {
+  @include flex-col(20px);
+  background: transparentize($primary, 0.8);
+  backdrop-filter: $blur;
+  border-radius: $border-radius;
+  min-width: $width;
+  padding: 15px 20px;
+  box-shadow: $box-shadow;
+  z-index: 1;
+
+  // disable blur effect and
+  // adjust background color on mobile
+  // to prevent lagging
+  @media (max-width: 1000px) {
+    background: transparentize(darken(#6773fa, 2%), 0.1);
+    backdrop-filter: none;
+  }
+}

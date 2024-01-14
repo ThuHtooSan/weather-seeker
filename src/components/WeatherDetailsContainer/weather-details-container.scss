@@ -1,0 +1,14 @@
+@use '../../sass/variables.scss' as *;
+@use '../../sass/mixins.scss' as *;
+
+.weather-details-container {
+  width: 100%;
+  @include flex-col(30px);
+  padding: 20px;
+
+  .current {
+    @include flex-row-center(30px);
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+}

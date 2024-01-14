@@ -1,0 +1,30 @@
+@use '../../sass/variables.scss' as *;
+
+.windmill-icon {
+  position: relative;
+  width: 100px;
+  height: 100px;
+
+  .shut-down {
+    position: absolute;
+    top: 5px;
+    left: -25px;
+    font-size: 0.5rem;
+    color: $warning;
+    text-transform: uppercase;
+    width: 70px;
+    letter-spacing: 0.7px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: -1;
+
+    .icon {
+      font-size: 0.5rem;
+    }
+  }
+
+  .windmillSvg {
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+  }
+}

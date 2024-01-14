@@ -1,0 +1,82 @@
+@use '../../sass/variables.scss' as *;
+@use '../../sass/mixins.scss' as *;
+
+.menu {
+  @include flex-row-center();
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid $white;
+  transition: $transition-duration;
+  cursor: pointer;
+  font-size: 0.8rem;
+  box-shadow: $box-shadow;
+  background: transparentize($primary, 0.9);
+  backdrop-filter: $blur;
+
+  &:hover {
+    background: $white;
+    color: $primary;
+  }
+}
+
+.settings-modal-container {
+  @include modal-container(rgba(256, 256, 256, 0.5));
+  z-index: 99;
+  transition: none;
+
+  .settings-modal {
+    @include flex-col(10px);
+    padding: 20px;
+    background: $primary;
+    border-radius: $border-radius;
+    width: 250px;
+    box-shadow: $box-shadow;
+    touch-action: none;
+
+    .title {
+      text-align: center;
+      @include flex-row-center;
+      padding: 0 0 15px;
+      font-size: 1.1rem;
+    }
+
+    .option {
+      @include flex-row;
+      justify-content: space-between;
+      align-items: center;
+
+      &:not(:last-of-type) {
+        margin-bottom: 10px;
+      }
+
+      .button {
+        border-radius: $pill-border;
+        position: relative;
+        box-shadow: $box-shadow;
+        border: none;
+        background: $white;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 1.4px;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          transition: $transition-duration;
+        }
+
+        &.on:after {
+          left: calc(100% - 16.5px);
+          background: $primary;
+        }
+
+        &.off:after {
+          left: 2px;
+          background: $muted;
+        }
+      }
+    }
+  }
+}

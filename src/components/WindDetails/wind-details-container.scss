@@ -1,0 +1,44 @@
+@use '../../sass/variables.scss' as *;
+@use '../../sass/mixins.scss' as *;
+
+.wind-details-container {
+  @include card();
+
+  .wind-details {
+    @include flex-row-center(50px);
+
+    .wind-info {
+      .icon {
+        font-size: 1rem;
+      }
+
+      .beaufort-scale {
+        @include flex-row(6px);
+
+        .icon-wrapper {
+          cursor: pointer;
+
+          .detail-expand {
+            font-size: 0.9rem;
+          }
+        }
+      }
+
+      .wind-speed {
+        @include flex-row(5px);
+      }
+
+      .wind-gust {
+        @include flex-row(9px);
+
+        .icon {
+          font-size: 0.7rem;
+        }
+      }
+
+      .wind-direction {
+        @include flex-row(10px);
+      }
+    }
+  }
+}

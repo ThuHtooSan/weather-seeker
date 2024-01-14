@@ -1,0 +1,83 @@
+@use '../../sass/variables.scss' as *;
+@use '../../sass/mixins.scss' as *;
+
+.about-controller {
+  position: fixed;
+  top: 0;
+  right: 10px;
+  background: transparentize($white, 0.1);
+  backdrop-filter: $blur;
+  box-shadow: $box-shadow;
+  border-radius: 0 0 50% 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  @include flex-row-center;
+  color: $primary;
+  z-index: 2;
+}
+
+.about-container {
+  @include modal-container();
+  z-index: 99;
+
+  .about {
+    @include modal-center($white, 8px);
+    max-width: 350px;
+    color: $black;
+    padding: 20px !important;
+
+    .title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .link-opener-blank {
+      font-size: 0.8rem;
+    }
+
+    .dismiss-about {
+      @include modal-dismiss-btn(right, $secondary, $navy);
+      padding: 0;
+      top: 10px;
+      right: 15px;
+      color: $primary;
+    }
+
+    .separator {
+      width: 50px;
+      height: 2px;
+      border-radius: 20px;
+      box-shadow: $box-shadow;
+      background: $dark-grey;
+      margin: 10px auto;
+    }
+
+    .tech-stack {
+      @include flex-col(5px);
+
+      .title {
+        font-size: 1rem;
+      }
+
+      .technologies {
+        @include flex-row-center(10px);
+        flex-wrap: wrap;
+
+        li {
+          @include flex-row(5px);
+          padding: 5px 10px;
+          background: #fff;
+          border-radius: $border-radius;
+          box-shadow: $box-shadow;
+          cursor: grab;
+
+          img {
+            width: 18px;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+  }
+}

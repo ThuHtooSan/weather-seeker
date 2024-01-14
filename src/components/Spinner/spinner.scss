@@ -1,0 +1,42 @@
+@use '../../sass/variables.scss' as *;
+@use '../../sass/mixins.scss' as *;
+@use '../../sass/animations.scss' as *;
+
+.spinner-container {
+  @include modal-container(rgba(0, 0, 0, 0.2));
+  z-index: 99;
+  transition: none;
+  cursor: wait;
+
+  .spinner {
+    @include flex-col(20px);
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    border-radius: $border-radius;
+    padding: 20px;
+    color: $white;
+
+    .icon-wrapper .icon {
+      font-size: 4rem;
+      color: $white;
+      animation: rotate 4s linear infinite;
+    }
+
+    .title {
+      @include flex-row;
+      font-size: 1.1rem;
+      letter-spacing: 0.6px;
+
+      .dot {
+        animation: loading 1.5s linear infinite;
+
+        @for $delay from 1 through 3 {
+          &:nth-of-type(#{$delay}) {
+            animation-delay: 0.3s * $delay;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+$yellow: rgb(255, 209, 27);
+$pink: rgb(248, 189, 235);
+$blue: rgb(82, 114, 242);
+$navy: rgb(7, 37, 65);
+$light-navy: rgb(36, 20, 104);
+$teal: rgb(31, 138, 112);
+$green: rgb(3, 201, 136);
+$red: rgb(216, 0, 50);
+$grey: rgb(155, 164, 181);
+$dark-grey: darken($grey, 20%);
+$white: rgb(241, 246, 249);
+$dark-navy: rgb(33, 42, 62);
+$black: $dark-navy;
+
+// color palettes
+$blue: rgb(82, 92, 235);
+$black: rgb(61, 59, 64);
+$grey: rgb(191, 207, 231);
+$white: rgb(248, 237, 255);
+
+$primary: $blue;
+$secondary: $black;
+$tertiary: $grey;
+$muted: transparentize($dark-grey, 0.2);
+$success: $green;
+$warning: $yellow;
+$error: $red;
+$bg: $blue;
+
+$max-width: 1000px;
+
+$border-radius: 8px;
+$pill-border: 30px;
+
+$box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+$blur: blur(6px);
+
+$transition-duration: 0.3s;
+$animation-duration: 0.5s;
+
+$button-bg: $primary;
+$button-color: $white;
