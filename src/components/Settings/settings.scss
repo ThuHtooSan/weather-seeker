@@ -52,6 +52,8 @@
 
       .button {
         border-radius: $pill-border;
+        width: 30px;
+        padding: 8px 13px;
         position: relative;
         box-shadow: $box-shadow;
         border: none;
@@ -61,14 +63,14 @@
           content: '';
           position: absolute;
           top: 1.4px;
-          width: 15px;
-          height: 15px;
+          width: 13px;
+          height: 13px;
           border-radius: 50%;
           transition: $transition-duration;
         }
 
         &.on:after {
-          left: calc(100% - 16.5px);
+          left: calc(100% - 14px);
           background: $primary;
         }
 

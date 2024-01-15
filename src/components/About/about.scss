@@ -27,6 +27,10 @@
     color: $black;
     padding: 20px !important;
 
+    a {
+      color: $primary;
+    }
+
     .title {
       font-size: 1.2rem;
       margin-bottom: 10px;
