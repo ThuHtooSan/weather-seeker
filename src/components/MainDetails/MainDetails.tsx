@@ -39,7 +39,7 @@ const MainDetails = ({
           {temp_min} {getUnit('temperature')}
         </p>
       </div>
-      {sea_level && ground_level ? (
+      {sea_level || ground_level ? (
         <>
           {sea_level && (
             <div className='pressure-sea'>
