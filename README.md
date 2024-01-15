@@ -1,27 +1,26 @@
-# React + TypeScript + Vite
+[![Netlify Status](https://api.netlify.com/api/v1/badges/03d3427b-726f-4b69-8876-7c33e6fca21d/deploy-status)](https://app.netlify.com/sites/react-weather-seeker/deploys)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# WeatherSeeker :partly_sunny: (React + TypeScript + Sass + Framer Motion)
 
-Currently, two official plugins are available:
+A React weather app, written in TypeScript and Sass, which uses Framer Motion for animations. It consumes weather data from [OpenWeatherMap API](https://openweathermap.org).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## :eyes: Screenshots
 
-## Expanding the ESLint configuration
+|                                                                                                                                          |                                                                                                                                          |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| ![Mobile Screenshot 1](https://github.com/ThuHtooSan/weather-seeker/blob/main/src/assets/screenshots/mobile-screenshot-1.png?raw=true)   | ![Mobile Screenshot 2](https://github.com/ThuHtooSan/weather-seeker/blob/main/src/assets/screenshots/mobile-screenshot-2.png?raw=true)   |
+| ![Mobile Screenshot 3](https://github.com/ThuHtooSan/weather-seeker/blob/main/src/assets/screenshots/mobile-screenshot-3.png?raw=true)   | ![Mobile Screenshot 4](https://github.com/ThuHtooSan/weather-seeker/blob/main/src/assets/screenshots/mobile-screenshot-4.png?raw=true)   |
+|                                                                                                                                          |                                                                                                                                          |
+| ![Desktop Screenshot 1](https://github.com/ThuHtooSan/weather-seeker/blob/main/src/assets/screenshots/desktop-screenshot-1.png?raw=true) | ![Desktop Screenshot 2](https://github.com/ThuHtooSan/weather-seeker/blob/main/src/assets/screenshots/desktop-screenshot-2.png?raw=true) |
+| ![Desktop Screenshot 3](https://github.com/ThuHtooSan/weather-seeker/blob/main/src/assets/screenshots/desktop-screenshot-3.png?raw=true) |
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## :rocket: Live Demo
 
-- Configure the top-level `parserOptions` property like this:
+[View live demo here!](https://react-weather-seeker.netlify.app/)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## :earth_americas: Tested on
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Mozilla Firefox :computer:
+- Ungoogled Chromium :computer:
+- Mull :iphone:
+- Chromite :iphone:
