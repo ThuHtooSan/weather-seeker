@@ -27,7 +27,12 @@ export type Action =
   | FetchFailureAction;
 
 type NoPayloadActions = {
-  type: 'RESTORE_UNIT' | 'TOGGLE_UNIT' | 'FETCH_START' | 'DISMISS_ERROR';
+  type:
+    | 'RESTORE_UNIT'
+    | 'TOGGLE_UNIT'
+    | 'FETCH_START'
+    | 'DISMISS_ERROR'
+    | 'RESET_WEATHER';
 };
 
 type FetchWeatherDataSuccessAction = {

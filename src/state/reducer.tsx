@@ -166,6 +166,11 @@ const reducer = (state: State, action: Action): State => {
         ...state,
         error: null,
       };
+    case 'RESET_WEATHER':
+      return {
+        ...state,
+        weather: { current: null, forecast: null },
+      };
     default: {
       return state;
     }

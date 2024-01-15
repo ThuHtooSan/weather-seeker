@@ -3,8 +3,10 @@ import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 import { useEffect, useRef, useState } from 'react';
 import './search-bar.scss';
 import { useNavigate } from 'react-router-dom';
+import { useAppContext } from '../../hooks';
 
 const SearchBar = () => {
+  const { dispatch } = useAppContext();
   const navigate = useNavigate();
   const [input, setInput] = useState('');
   const inputRef = useRef<HTMLInputElement>(null!);
@@ -20,6 +22,7 @@ const SearchBar = () => {
     if (e.key === 'Enter') {
       navigate(`/weather?city=${input.trim()}`);
       setInput('');
+      dispatch({ type: 'RESET_WEATHER' });
     }
   };
 
