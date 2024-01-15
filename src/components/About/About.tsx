@@ -75,7 +75,7 @@ const About = () => {
               <p className='source-code'>
                 View source code at{' '}
                 <a
-                  href='http://github.com/thuhtoosan/react-weather-app'
+                  href='http://github.com/thuhtoosan/weather-seeker'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='bold'
