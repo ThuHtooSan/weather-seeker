@@ -8,6 +8,7 @@ import { OpenWeatherMapErrorResponse } from '../../types/ErrorResponses';
 
 const Weather = () => {
   const { state, dispatch } = useAppContext();
+  const { current, forecast } = state.weather;
   const [searchParams, _] = useSearchParams();
   let { city, country, lat, lon } = Object.fromEntries(searchParams.entries());
   lat = Number(lat).toFixed(2);
@@ -73,13 +74,14 @@ const Weather = () => {
   useEffect(() => {
     fetchWeather();
   }, [state.configs.unit, lat, lon, city]);
+
   return (
     <>
       <Spinner title='Fetching weather' />
-      {!!state.weather.current && !!state.weather.forecast && (
+      {!state.loading && (
         <WeatherDetailsContainer
-          currentWeather={state.weather.current}
-          forecastData={state.weather.forecast}
+          currentWeather={current}
+          forecastData={forecast}
         />
       )}
     </>

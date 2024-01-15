@@ -12,6 +12,8 @@ const WeatherDetailsContainer = ({
   currentWeather,
   forecastData,
 }: WeatherDetailsContainerProps) => {
+  if (!currentWeather) return;
+
   const { weather, main, clouds, visibility, wind, dt, sys, name } =
     currentWeather;
   return (
@@ -26,10 +28,12 @@ const WeatherDetailsContainer = ({
         <BasicWeatherDetails {...{ weather, main, sys, name }} />
         <AdvancedWeatherDetails {...{ visibility, wind, clouds }} />
       </div>
-      <div className='forecasts'>
-        <WeatherForecast list={forecastData.list} />
-        <WeatherSource dt={dt} />
-      </div>
+      {forecastData && (
+        <div className='forecasts'>
+          <WeatherForecast list={forecastData.list} />
+        </div>
+      )}
+      <WeatherSource dt={dt} />
     </motion.div>
   );
 };
