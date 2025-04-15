@@ -1,8 +1,7 @@
-export type AbstractErrorResponse = {
+export type ExtractIpErrorResponse = {
   error: {
     message: string;
     code: string;
-    details: null | string;
   };
 };
 

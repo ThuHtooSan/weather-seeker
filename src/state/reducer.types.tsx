@@ -1,7 +1,7 @@
 import { AxiosError } from 'axios';
 import { CurrentWeather, ForecastData } from '../types';
 import {
-  AbstractErrorResponse,
+  ExtractIpErrorResponse,
   OpenWeatherMapErrorResponse,
 } from '../types/ErrorResponses';
 import { RefactoredForecastData } from '../types/Forecasts';
@@ -47,5 +47,5 @@ type FetchIPSuccessAction = {
 
 type FetchFailureAction = {
   type: 'FETCH_FAIL';
-  payload: AbstractErrorResponse | OpenWeatherMapErrorResponse | AxiosError;
+  payload: ExtractIpErrorResponse | OpenWeatherMapErrorResponse | AxiosError;
 };

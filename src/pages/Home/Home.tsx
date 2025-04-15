@@ -4,7 +4,7 @@ import { Spinner } from '../../components';
 import { IpInfo } from '../../types/IpInfo';
 import { useNavigate } from 'react-router-dom';
 import axios, { AxiosError, isAxiosError } from 'axios';
-import { AbstractErrorResponse } from '../../types/ErrorResponses';
+import { ExtractIpErrorResponse } from '../../types/ErrorResponses';
 
 const Home = () => {
   const { dispatch } = useAppContext();
@@ -16,23 +16,20 @@ const Home = () => {
         type: 'FETCH_START',
       });
 
-      const res = await axios.get<IpInfo>(
-        `https://ipgeolocation.abstractapi.com/v1/?api_key=${
-          import.meta.env.VITE_ABSTRACT_KEY
-        }`
-      );
+      const res = await axios.get<IpInfo>('https://myip.wtf/json');
 
       dispatch({
         type: 'FETCH_IP_SUCCESS',
         payload: res.data,
       });
 
-      const { city, country_code } = res.data;
-      navigate(`/weather?city=${city}&country=${country_code}`);
+      // please don't mind the words – it comes from the API itself, not from me :)
+      const { YourFuckingCity: city, YourFuckingCountry: country } = res.data;
+      navigate(`/weather?city=${city}&country=${country}`);
     } catch (err) {
       console.error(err);
 
-      if (isAxiosError<AbstractErrorResponse>(err)) {
+      if (isAxiosError<ExtractIpErrorResponse>(err)) {
         if (err.response?.data) {
           dispatch({
             type: 'FETCH_FAIL',
